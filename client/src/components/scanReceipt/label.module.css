@@ -1,0 +1,29 @@
+
+.takePhotoWrap{
+    background-color: #38e07b;
+    color: black;
+}
+.selectPhotoWrap{
+    background-color: #cff3de;
+    color: #40e180;
+}
+.photoLabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    font-size: 1.2rem;
+    font-weight: 740;
+    border: none;
+    border-radius: 1em;
+    padding: 0.7em;
+    gap: 0.5em;
+}
+.takePhotoInput {
+  margin-top: 1rem;
+  display: none;
+  cursor: pointer
+}
+.takePhotoIcon{
+    width: 2.2rem;
+}
