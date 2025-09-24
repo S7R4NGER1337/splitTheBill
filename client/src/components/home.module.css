@@ -1,0 +1,42 @@
+.homeContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: center;
+    gap: 2em;
+    padding: 0.25em;
+}
+
+.homeData{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1em;
+}
+.homeDataTitle{
+    font-size: 2.2rem;
+    max-width: 20rem;
+    font-weight: 700;
+}
+.homeDataSubtitle{
+    font-size: 1.2rem;
+}
+
+.homeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
+    background-color: #38e07b;
+    font-size: 1.4rem;
+    font-weight: 750;
+    border: none;
+    border-radius: 2em;
+    padding: 0.7em;
+    gap: 0.5em;
+}
+.homeButtonIcon{
+   width: 2.2rem;
+}
