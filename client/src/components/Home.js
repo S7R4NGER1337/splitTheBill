@@ -1,6 +1,8 @@
 import styles from "./home.module.css";
+import { useNavigate } from 'react-router-dom'
 
 export default function Home() {
+  const navigate = useNavigate()
   return (
     <div className={styles.homeContainer}>
       <section className={styles.homeData}>
@@ -10,7 +12,7 @@ export default function Home() {
           your receipt.
         </p>
       </section>
-      <button className={styles.homeButton}>
+      <button className={styles.homeButton} onClick={() => navigate('/scanReceipt')}>
         <img
           className={styles.homeButtonIcon}
           src="/camera-regular-full.svg"
