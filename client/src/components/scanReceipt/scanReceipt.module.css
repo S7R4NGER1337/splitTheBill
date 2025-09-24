@@ -1,0 +1,75 @@
+.scanReceiptContainer{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.scanReceiptData{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    text-align: center;
+    align-items: center;
+}
+.scanReceiptIcon{
+    width: 6rem;
+    padding: 1.4em;
+    background-color: #cff3de;
+    border-radius: 5em;
+}
+.scanReceiptSubtitle{
+    color: gray;
+    font-size: 1.2rem;
+    width: 80%;
+}
+.scanReceiptTitle{
+    font-size: 1.9rem;
+}
+.scanReceiptButtonsContaienr{
+    width: 100%;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    bottom: 5%;
+    display: flex;
+    flex-direction: column;
+}
+
+.takePhotoWrap{
+    background-color: #38e07b;
+    color: black;
+}
+.selectPhotoWrap{
+    background-color: #cff3de;
+    color: #40e180;
+}
+.photoLabel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    font-size: 1.2rem;
+    font-weight: 740;
+    border: none;
+    border-radius: 1em;
+    padding: 0.7em;
+    gap: 0.5em;
+}
+.takePhotoInput {
+  margin-top: 1rem;
+  display: none;
+  cursor: pointer
+}
+.takePhotoInput::file-selector-button {
+  display: none
+}
+.takePhotoIcon{
+    width: 2.2rem;
+}
+.scanReceiptButtonsContaienr{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
