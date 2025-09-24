@@ -1,6 +1,19 @@
+import Label from "./Label";
 import styles from "./scanReceipt.module.css";
+import { useState } from "react";
 
 export default function ScanReceipt() {
+  const [imageFile, setImageFile] = useState(null); // File object
+  const [preview, setPreview] = useState(null); // Preview URL
+
+  const handleChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImageFile(file);
+      setPreview(URL.createObjectURL(file));
+    }
+  };
+
   return (
     <div className={styles.scanReceiptContainer}>
       <section className={styles.scanReceiptData}>
@@ -15,28 +28,8 @@ export default function ScanReceipt() {
         </p>
       </section>
       <div className={styles.scanReceiptButtonsContaienr}>
-         <label className={`${styles.photoLabel} ${styles.takePhotoWrap}`}>
-          <input
-            className={styles.takePhotoInput}
-            type="file"
-            placeholder="Take Photo"
-            accept="image/*"
-            capture="environment"
-          />
-          <img className={styles.takePhotoIcon} src="/camera-regular-full.svg" alt="cameraIcon" />
-          Take Photo
-        </label>
-        <label className={`${styles.photoLabel} ${styles.selectPhotoWrap}`}>
-          <input
-            className={styles.takePhotoInput}
-            type="file"
-            placeholder="Take Photo"
-            accept="image/*"
-            capture="environment"
-          />
-          <img className={styles.takePhotoIcon} src="/camera-regular-full.svg" alt="cameraIcon" />
-          Select from Library
-        </label>
+        <Label type={"photo"}>Take Photo</Label>
+        <Label type={"library"}>Select from Library</Label>
       </div>
     </div>
   );
