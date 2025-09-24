@@ -22,6 +22,8 @@
 }
 .homeDataSubtitle{
     font-size: 1.2rem;
+    font-weight: 430;
+    color: gray;
 }
 
 .homeButton{
@@ -30,8 +32,8 @@
     justify-content: center;
     width: 60%;
     background-color: #38e07b;
-    font-size: 1.4rem;
-    font-weight: 750;
+    font-size: 1.3rem;
+    font-weight: 740;
     border: none;
     border-radius: 2em;
     padding: 0.7em;
