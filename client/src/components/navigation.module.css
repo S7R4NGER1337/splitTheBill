@@ -1,0 +1,13 @@
+.navigationContainer{
+    position: absolute;
+    top: 0;
+    height: 6vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navigationName{
+    font-size: 1.3rem;
+}
