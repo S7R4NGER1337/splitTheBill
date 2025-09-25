@@ -8,4 +8,5 @@ export const handleChange = async (e) => {
   formData.append("image", file);
 
  const receipt = await sendImage(formData)
+ return receipt
 };
