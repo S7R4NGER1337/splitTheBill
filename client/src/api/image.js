@@ -2,7 +2,7 @@ const URL = "http://localhost:3030"
 
 export async function sendImage(formData) {
   try {
-    const response = await fetch(`${URL}/upload"`, {
+    const response = await fetch(`${URL}/upload`, {
       method: "POST",
       body: formData,
     });
