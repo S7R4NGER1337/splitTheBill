@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Navigation from "./components/Navigation";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import ScanReceipt from "./components/scanReceipt/ScanReceipt";
+import ReceiptPage from "./components/receiptPage/ReceiptPage";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/scanReceipt" element={<ScanReceipt />} />
+          <Route path="/receipt/:id" element={<ReceiptPage />} />
         </Routes>
       </BrowserRouter>
     </div>
