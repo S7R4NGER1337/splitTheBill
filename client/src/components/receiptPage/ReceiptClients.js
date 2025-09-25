@@ -1,8 +1,13 @@
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
 import styles from "./receiptClients.module.css";
 
-export default function ReceiptClients({ receiptData }) {
+export default function ReceiptClients({ receiptData, setReceiptData }) {
   const letters = receiptData.clients.map((client) => client[0]);
+  const newClient = 'Alex'
+
+  function addNewClient() {
+    setReceiptData(prev => ({...prev, clients: [...prev.clients, newClient]}))  
+  }
 
   return (
     <div className={styles.receiptClientContainer}>
@@ -11,7 +16,7 @@ export default function ReceiptClients({ receiptData }) {
         {letters.map((letter, index) => (
           <ReceiptClientPhoto key={index} letter={letter} />
         ))}
-        <button className={styles.receiptClientButton}>+</button>
+        <button className={styles.receiptClientButton} onClick={addNewClient}>+</button>
       </div>
     </div>
   );
