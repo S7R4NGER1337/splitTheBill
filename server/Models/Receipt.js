@@ -7,7 +7,7 @@ const ReceiptSchema = new mongoose.Schema({
       name: String,
       price: Number,
       qty: Number,
-      orderedItems: String
+      orderedBy: [String]
     },
   ],
 });
