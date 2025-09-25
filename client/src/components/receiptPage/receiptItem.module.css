@@ -1,0 +1,31 @@
+.receiptItemContainer{
+    border-radius: 1em;
+    padding: 1.3em;
+    background-color: #fff;
+    border: 0.1em solid rgba(177, 176, 176, 0.267);
+}
+
+.receiptItemData{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.receiptItemName{
+    font-size: 1.2rem;
+}
+
+.receiptItemPrice{
+    color: gray;
+    font-size: 1rem;
+}
+
+.receiptItemActions{
+    display: flex;
+    align-self: flex-start;
+    gap: 0.5em;
+}
+
+.receiptAction{
+    width: 1.3rem;
+}
