@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 import dotenv from "dotenv";
 import express from "express";
 import multer from "multer";
@@ -38,7 +39,7 @@ app.post("/upload", upload.single("image"), async (req, res) => {
         },
       ],
     });
-    
+
     let content = response.choices[0].message.content;
     content = content.replace(/```javascript|```/g, "").trim();
     const products = JSON.parse(content.replace(/(\w+):/g, '"$1":'));
@@ -52,4 +53,8 @@ app.post("/upload", upload.single("image"), async (req, res) => {
   }
 });
 
+mongoose.connect('mongodb://localhost:27017/SplitTheBill')
+    .then(() => console.log('Db connected'))
+    .catch(error => console.log(error))
+    
 app.listen(3030, () => console.log("Server running on http://localhost:3030"));
