@@ -1,5 +1,10 @@
 import styles from './receipt.module.css'
+import ReceiptClients from './ReceiptClients'
 
 export default function ReceiptPage() {
-    return <h1>ReceiptPage</h1>
+    return (
+        <div className={styles.receiptPageContainer}>
+            <ReceiptClients />
+        </div>
+    )
 }
