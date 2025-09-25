@@ -1,4 +1,4 @@
-import styles from './receipt.module.css'
+import styles from './receiptPage.module.css'
 import ReceiptClients from './ReceiptClients'
 import { receipt } from '../../api/staticData'
 import { useState } from 'react'
