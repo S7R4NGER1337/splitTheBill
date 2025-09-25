@@ -11,7 +11,7 @@ export default function ReceiptPage() {
         <div className={styles.receiptPageContainer}>
             <ReceiptClients receiptData={receiptData} setReceiptData={setReceiptData}/>
             <div className={styles.receiptItemsContainer}>
-                {receiptData.orderItems.map(item => <ReceiptItem itemData={item}/>)}
+                {receiptData.orderItems.map((item, index) => <ReceiptItem itemData={item} receiptData={receiptData} key={index}/>)}
             </div>
         </div>
     )
