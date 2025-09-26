@@ -1,17 +1,19 @@
 import { useState } from "react";
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
 import styles from "./receiptClients.module.css";
+import { setNewName } from '../../api/image'
 
 export default function ReceiptClients({ receiptData, setReceiptData }) {
   const [clientInputStatus, setCientInputStatus] = useState("hidden");  
   const [newClient, setNewClient] = useState('')
   const letters = receiptData.clients.map((client) => client[0]);
 
-  function addNewClient() {
+  async function addNewClient() {
     setReceiptData((prev) => ({
       ...prev,
       clients: [...prev.clients, newClient],
     }));
+    await setNewName(receiptData._id, newClient)
     setCientInputStatus('hidden')
   }
 
