@@ -1,9 +1,11 @@
 import Label from "./Label";
 import styles from "./scanReceipt.module.css";
-import { handleChange } from "../../utils/image";
+import { useState } from "react";
 
 export default function ScanReceipt() {
+  const [status, setStatus] = useState('loadin')
   return (
+    status === 'loading' ? <h1>Loading...</h1>:
     <div className={styles.scanReceiptContainer}>
       <section className={styles.scanReceiptData}>
         <img
@@ -17,10 +19,10 @@ export default function ScanReceipt() {
         </p>
       </section>
       <div className={styles.scanReceiptButtonsContaienr}>
-        <Label type={"photo"} handleChange={handleChange}>
+        <Label type={"photo"} setStatus={setStatus}>
           Take Photo
         </Label>
-        <Label type={"library"} handleChange={handleChange}>
+        <Label type={"library"} setStatus={setStatus}>
           Select from Library
         </Label>
       </div>
