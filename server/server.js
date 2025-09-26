@@ -15,6 +15,9 @@ const openai = new OpenAI({
 });
 
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded());
+
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
@@ -90,6 +93,17 @@ app.get("/receipt/:id", async (req, res) => {
     res.status(500).json({ error: "Server error" });
   }
 });
+
+app.post('/receipt/setUser', async (req, res) => {
+  console.log(req.body);
+  
+  const receiptId = req.body.id
+  const receiptClient = req.body.name
+
+  console.log(receiptId, receiptClient);
+  
+  // const newClient = await Receipt.findByIdAndUpdate()
+})
 
 mongoose
   .connect("mongodb://localhost:27017/SplitTheBill")
