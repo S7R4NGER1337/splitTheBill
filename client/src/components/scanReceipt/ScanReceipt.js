@@ -4,7 +4,7 @@ import styles from "./scanReceipt.module.css";
 import { useState } from "react";
 
 export default function ScanReceipt() {
-  const [status, setStatus] = useState('loading')
+  const [status, setStatus] = useState('default')
   return (
     status === 'loading' ? <Loading />:
     <div className={styles.scanReceiptContainer}>
