@@ -13,3 +13,9 @@ export async function sendImage(formData) {
     console.error("Upload error");
   }
 }
+
+export async function GetReceiptById(id, setReceiptData) {
+  const response = await fetch(`${URL}/receipt/${id}`)
+  const data = await response.json()
+  setReceiptData(data)
+}

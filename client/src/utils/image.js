@@ -10,5 +10,5 @@ export const handleChange = async (e, setStatus, redirectTo) => {
 
  const receipt = await sendImage(formData)
  setStatus('loaded')
- redirectTo(`/receipt/${receipt._id}`)
+ redirectTo(`/receipt/${receipt._id}`, receipt)
 };

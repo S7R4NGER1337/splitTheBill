@@ -5,8 +5,8 @@ import { useNavigate } from 'react-router-dom'
 export default function Label({ type, children, setStatus }) {
   const navigate = useNavigate()
 
-  function redirectTo(path) {
-    navigate(path)
+  function redirectTo(path, receiptData) {
+    navigate(path, { state: {receiptData: receiptData}})
   }
   return (
     <label className={`${styles.photoLabel} ${type === 'photo' ? styles.takePhotoWrap: styles.selectPhotoWrap}`}>
