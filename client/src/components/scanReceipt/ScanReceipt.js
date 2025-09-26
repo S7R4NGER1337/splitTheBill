@@ -1,11 +1,12 @@
+import Loading from "../Loader";
 import Label from "./Label";
 import styles from "./scanReceipt.module.css";
 import { useState } from "react";
 
 export default function ScanReceipt() {
-  const [status, setStatus] = useState('loadin')
+  const [status, setStatus] = useState('loading')
   return (
-    status === 'loading' ? <h1>Loading...</h1>:
+    status === 'loading' ? <Loading />:
     <div className={styles.scanReceiptContainer}>
       <section className={styles.scanReceiptData}>
         <img
