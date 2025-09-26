@@ -1,8 +1,13 @@
 import styles from "./label.module.css";
 import { handleChange } from '../../utils/image'
+import { useNavigate } from 'react-router-dom'
 
 export default function Label({ type, children, setStatus }) {
+  const navigate = useNavigate()
 
+  function redirectTo(path) {
+    navigate(path)
+  }
   return (
     <label className={`${styles.photoLabel} ${type === 'photo' ? styles.takePhotoWrap: styles.selectPhotoWrap}`}>
       <input
@@ -11,7 +16,7 @@ export default function Label({ type, children, setStatus }) {
         placeholder="Take Photo"
         accept="image/*"
         capture="environment"
-        onChange={(e) => handleChange(e, setStatus)}
+        onChange={(e) => handleChange(e, setStatus, redirectTo)}
       />
       <img
         className={styles.takePhotoIcon}
