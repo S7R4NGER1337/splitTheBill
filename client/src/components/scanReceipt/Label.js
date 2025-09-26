@@ -1,6 +1,8 @@
 import styles from "./label.module.css";
+import { handleChange } from '../../utils/image'
 
-export default function Label({ handleChange, type, children }) {
+export default function Label({ type, children, setStatus }) {
+
   return (
     <label className={`${styles.photoLabel} ${type === 'photo' ? styles.takePhotoWrap: styles.selectPhotoWrap}`}>
       <input
@@ -9,7 +11,7 @@ export default function Label({ handleChange, type, children }) {
         placeholder="Take Photo"
         accept="image/*"
         capture="environment"
-        onChange={(e) => handleChange(e)}
+        onChange={(e) => handleChange(e, setStatus)}
       />
       <img
         className={styles.takePhotoIcon}
