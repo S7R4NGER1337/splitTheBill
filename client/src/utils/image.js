@@ -1,6 +1,6 @@
 import { sendImage } from '../api/image'
 
-export const handleChange = async (e, setStatus) => {
+export const handleChange = async (e, setStatus, redirectTo) => {
   setStatus('loading')
   const file = e.target.files[0];
   if (!file) return;
@@ -10,5 +10,5 @@ export const handleChange = async (e, setStatus) => {
 
  const receipt = await sendImage(formData)
  setStatus('loaded')
- return receipt
+ redirectTo(`/receipt/${receipt._id}`)
 };
