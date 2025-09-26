@@ -1,23 +1,44 @@
+import { useState } from "react";
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
 import styles from "./receiptClients.module.css";
 
 export default function ReceiptClients({ receiptData, setReceiptData }) {
+  const [clientInputStatus, setCientInputStatus] = useState("hidden");  
+  const [newClient, setNewClient] = useState('')
   const letters = receiptData.clients.map((client) => client[0]);
-  const newClient = 'Alex'
 
   function addNewClient() {
-    setReceiptData(prev => ({...prev, clients: [...prev.clients, newClient]}))  
+    setReceiptData((prev) => ({
+      ...prev,
+      clients: [...prev.clients, newClient],
+    }));
+    setCientInputStatus('hidden')
   }
 
   return (
     <div className={styles.receiptClientContainer}>
       <h1 className={styles.receiptClientTitle}>Receipt Clients</h1>
-      <div className={styles.receptClinetPhotos}>
-        {letters.map((letter, index) => (
-          <ReceiptClientPhoto key={index} letter={letter} />
-        ))}
-        <button className={styles.receiptClientButton} onClick={addNewClient}>+</button>
-      </div>
+      {clientInputStatus === "shown" ? (
+        <div className={styles.newNameContainer}>
+          <input
+            className={styles.newClientInput}
+            type="text"
+            placeholder="Enter new name"
+            value={newClient}
+            onChange={(e) => setNewClient(e.target.value)}
+          />
+          <button className={styles.newNameBtn} onClick={addNewClient}>Create</button>
+        </div>
+      ) : (
+        <div className={styles.receptClinetPhotos}>
+          {letters.map((letter, index) => (
+            <ReceiptClientPhoto key={index} letter={letter} />
+          ))}
+          <button className={styles.receiptClientButton} onClick={() => setCientInputStatus('shown')}>
+            +
+          </button>
+        </div>
+      )}
     </div>
   );
 }
