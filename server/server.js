@@ -69,9 +69,6 @@ app.post("/upload", upload.single("image"), async (req, res) => {
     });
 
     await receipt.save();
-
-    console.log(receipt);
-
     res.json(receipt);
   } catch (err) {
     console.error("Upload error:", err);
@@ -86,7 +83,7 @@ app.get("/receipt/:id", async (req, res) => {
     if (!receipt) {
       return res.status(404).json({ error: "Receipt not found" });
     }
-    
+
     res.json(receipt);
   } catch (err) {
     console.error(err);
@@ -94,16 +91,28 @@ app.get("/receipt/:id", async (req, res) => {
   }
 });
 
-app.post('/receipt/setUser', async (req, res) => {
-  console.log(req.body);
-  
-  const receiptId = req.body.id
-  const receiptClient = req.body.name
+app.post("/receipt/setUser", async (req, res) => {
+  try {
+    const receiptId = req.body.id;
+    const receiptClient = req.body.name;
+    const receipt = await Receipt.findById(receiptId);
+    if (!receipt) return res.status(404).json({ error: "Receipt not found" });
 
-  console.log(receiptId, receiptClient);
-  
-  // const newClient = await Receipt.findByIdAndUpdate()
-})
+    const count = receipt.clients.filter((c) =>
+      c.startsWith(receiptClient)
+    ).length;
+    const newName =
+      count > 0 ? `${receiptClient} (${count + 1})` : receiptClient;
+
+    receipt.clients.push(newName);
+    await receipt.save();
+
+    res.json(receipt);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: "Server error" });
+  }
+});
 
 mongoose
   .connect("mongodb://localhost:27017/SplitTheBill")
