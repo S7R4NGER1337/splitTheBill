@@ -1,4 +1,7 @@
 .receiptItemContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
     border-radius: 1em;
     padding: 1.3em;
     background-color: #fff;
@@ -28,4 +31,10 @@
 
 .receiptAction{
     width: 1.3rem;
+}
+
+.clientsSelectContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
 }

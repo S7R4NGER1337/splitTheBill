@@ -1,8 +1,17 @@
 .receiptClientPhoto{
-    background-color: #38e07b;
-    color: #000;
     padding: 1em 1.2em;
     border-radius: 5em;
     font-size: 0.7rem;
     font-weight: 450;
+    width: fit-content;
+}
+
+.main{
+    background-color: #38e07b;
+    color: #000;
+}
+
+.secondary{
+    background-color: #ddf7e7;
+    color: #62e699;
 }
