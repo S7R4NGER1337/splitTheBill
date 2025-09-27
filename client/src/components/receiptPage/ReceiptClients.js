@@ -34,8 +34,8 @@ export default function ReceiptClients({ receiptData, setReceiptData }) {
         </div>
       ) : (
         <div className={styles.receptClinetPhotos}>
-          {receiptData.clients.map((letter, index) => (
-            <ReceiptClientPhoto key={index} letter={letter} />
+          {receiptData.clients.map((name, index) => (
+            <ReceiptClientPhoto key={index} name={name} type={'main'}/>
           ))}
           <button
             className={styles.receiptClientButton}
