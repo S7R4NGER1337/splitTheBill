@@ -1,7 +1,14 @@
 import styles from "./receiptItem.module.css";
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
+import { useEffect, useState } from "react";
 
 export default function ReceiptItem({ itemData, receiptData }) {
+  const [orderedBy, setOrderedBy] = useState([]);
+
+  useEffect(() => {;
+    setOrderedBy(itemData.orderedBy)
+  }, [])
+
   return (
     <div className={styles.receiptItemContainer}>
       <div className={styles.receiptItemData}>
@@ -26,7 +33,13 @@ export default function ReceiptItem({ itemData, receiptData }) {
       </div>
       <div className={styles.clientsSelectContainer}>
         {receiptData.clients.map((name, index) => (
-          <ReceiptClientPhoto key={index} name={name} type={"secondary"} selectedClients={itemData.orderedBy}/>
+          <ReceiptClientPhoto
+            key={index}
+            name={name}
+            type={"secondary"}
+            orderedBy={orderedBy}
+            setOrderedBy={setOrderedBy}
+          />
         ))}
       </div>
     </div>
