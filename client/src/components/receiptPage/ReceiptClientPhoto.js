@@ -6,6 +6,7 @@ export default function ReceiptClientPhoto({
   type,
   orderedBy,
   setOrderedBy,
+  photoType,
 }) {
   const [nameType, setNameType] = useState(type);
 
@@ -34,9 +35,17 @@ export default function ReceiptClientPhoto({
     });
   }
 
-  return (
+  return photoType === "Button" ? (
     <p
       onClick={(e) => nameOnClick(e)}
+      className={`${styles.receiptClientPhoto} ${
+        nameType === "main" ? styles.main : styles.secondary
+      }`}
+    >
+      {name}
+    </p>
+  ) : (
+    <p
       className={`${styles.receiptClientPhoto} ${
         nameType === "main" ? styles.main : styles.secondary
       }`}
