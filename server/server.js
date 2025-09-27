@@ -114,6 +114,29 @@ app.post("/receipt/setUser", async (req, res) => {
   }
 });
 
+app.post("/receipt/edit", async (req, res) => {
+  try {
+    const clients = req.body.clients;
+    const itemId = req.body.itemId;
+    const receiptId = req.body.receiptId;
+
+    const editedReceipt = await Receipt.findByIdAndUpdate(
+      receiptId,
+      {
+        $set: { "orderItems.$[elem].orderedBy": clients },
+      },
+      {
+        new: true,
+        arrayFilters: [{ "elem._id": itemId }],
+      }
+    );
+
+    res.json(editedReceipt);
+  } catch (error) {
+    res.status(500).json({ error: "Server error" });
+  }
+});
+
 mongoose
   .connect("mongodb://localhost:27017/SplitTheBill")
   .then(() => console.log("Db connected"))
