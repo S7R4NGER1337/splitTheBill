@@ -32,3 +32,17 @@ export async function setNewName(id, name) {
   const data = await response.json();
   return data;
 }
+
+
+export async function editReceipt(receipt, itemId, receiptId) {
+  const response = await fetch(`${URL}/receipt/edit`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({clients: receipt, itemId: itemId, receiptId: receiptId}),
+  })
+
+  const editedReceipt = await response.json()
+  return editedReceipt
+}
