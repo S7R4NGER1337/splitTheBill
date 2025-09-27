@@ -32,6 +32,6 @@ export default function ReceiptPage() {
       </div>
     </div>
   ) : (
-    <></>
+    <Loader/>
   );
 }
