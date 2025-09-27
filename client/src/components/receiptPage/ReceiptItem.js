@@ -1,13 +1,19 @@
 import styles from "./receiptItem.module.css";
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
 import { useEffect, useState } from "react";
+import { editReceipt } from "../../api/image";
 
 export default function ReceiptItem({ itemData, receiptData }) {
   const [orderedBy, setOrderedBy] = useState([]);
 
-  useEffect(() => {;
-    setOrderedBy(itemData.orderedBy)
-  }, [])
+  useEffect(() => {
+    setOrderedBy(itemData.orderedBy);
+    console.log(1);
+  }, [itemData]);
+
+  useEffect(() => {
+    editReceipt(orderedBy, itemData._id, receiptData._id);
+  }, [orderedBy]);
 
   return (
     <div className={styles.receiptItemContainer}>
@@ -34,6 +40,7 @@ export default function ReceiptItem({ itemData, receiptData }) {
       <div className={styles.clientsSelectContainer}>
         {receiptData.clients.map((name, index) => (
           <ReceiptClientPhoto
+            photoType={'Button'}
             key={index}
             name={name}
             type={"secondary"}
