@@ -1,21 +1,42 @@
 import styles from "./receiptClientPhoto.module.css";
 import { useState, useEffect } from "react";
 
-export default function ReceiptClientPhoto({ name, type, selectedClients }) {
+export default function ReceiptClientPhoto({
+  name,
+  type,
+  orderedBy,
+  setOrderedBy,
+}) {
   const [nameType, setNameType] = useState(type);
 
   useEffect(() => {
-    if (Array.isArray(selectedClients)) {
-      if (selectedClients.includes(name)) {
+    if (Array.isArray(orderedBy)) {
+      if (orderedBy.includes(name)) {
         setNameType("main");
       } else {
         setNameType("secondary");
       }
     }
-  }, [selectedClients, name]);
+  }, [orderedBy, name]);
+
+  function nameOnClick(e) {
+    const targetName = e.target.textContent;
+
+    setOrderedBy((prev) => {
+      const isAlreadySelected = prev.includes(targetName);
+
+      if (isAlreadySelected) {
+        const selected = prev.filter((n) => n !== targetName);
+        return selected;
+      } else {
+        return [...prev, targetName];
+      }
+    });
+  }
 
   return (
     <p
+      onClick={(e) => nameOnClick(e)}
       className={`${styles.receiptClientPhoto} ${
         nameType === "main" ? styles.main : styles.secondary
       }`}
