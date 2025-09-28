@@ -26,7 +26,7 @@ export default function ReceiptPage() {
         receiptData={receiptData}
         setReceiptData={setReceiptData}
       />
-      <ReceiptItems receiptData={receiptData}/>
+      <ReceiptItems receiptData={receiptData} setReceiptData={setReceiptData}/>
       <Summary receiptData={receiptData}/>
     </div>
   ) : (
