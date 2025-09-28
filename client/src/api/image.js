@@ -33,16 +33,32 @@ export async function setNewName(id, name) {
   return data;
 }
 
-
 export async function editReceipt(receipt, itemId, receiptId) {
   const response = await fetch(`${URL}/receipt/edit/orderedBy`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({clients: receipt, itemId: itemId, receiptId: receiptId}),
-  })
+    body: JSON.stringify({
+      clients: receipt,
+      itemId: itemId,
+      receiptId: receiptId,
+    }),
+  });
 
-  const editedReceipt = await response.json()
-  return editedReceipt
+  const editedReceipt = await response.json();
+  return editedReceipt;
+}
+
+export async function deleteReceiptItem(itemId, receiptId) {
+  const response = await fetch(`${URL}/receiptItem/delete`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ itemId: itemId, receiptId: receiptId }),
+  });
+  const deletedProduct = await response.json();
+
+  return deletedProduct;
 }
