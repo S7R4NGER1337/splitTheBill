@@ -1,7 +1,7 @@
 import styles from "./receiptItem.module.css";
 import ReceiptClientPhoto from "../receiptClient/ReceiptClientPhoto";
 import { useEffect, useState } from "react";
-import { editReceipt } from "../../../api/image";
+import { editReceipt, deleteReceiptItem } from "../../../api/image";
 
 export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
   const [orderedBy, setOrderedBy] = useState([]);
@@ -40,6 +40,7 @@ export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
             className={styles.receiptAction}
             src="/trash-solid-full.svg"
             alt="edit"
+            onClick={() => deleteReceiptItem(itemData._id, receiptData._id)}
           />
         </div>
       </div>
