@@ -35,13 +35,6 @@
     padding: 1.1em;
 }
 
-.orderedItems{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    color: rgb(136, 136, 136);
-}
-
 .clientPrice, .clientName{
     font-size: 1.1rem;
     font-weight: 700;

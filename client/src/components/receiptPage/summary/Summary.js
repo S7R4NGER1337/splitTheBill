@@ -1,4 +1,5 @@
 import styles from './summary.module.css'
+import SummaryOrderedItems from './SummaryOrderedItems'
 
 export default function Summary({receiptData}) {
     return(
@@ -6,7 +7,7 @@ export default function Summary({receiptData}) {
         <h1 className={styles.summaryContainerTitle}>Summary</h1>
         <div className={styles.clientsSummary}>
           {receiptData.clients.map((client) => (
-            <div className={styles.clientSummary} key={client.name}>
+            <div className={styles.clientSummary} key={client}>
               <section className={styles.clientData}>
                 <div>
                   <p className={styles.clientName}>{client}</p>
@@ -15,10 +16,7 @@ export default function Summary({receiptData}) {
                 <p className={styles.clientPrice}>$10.60</p>                
               </section>
               <div className={styles.line}></div>
-              <div className={styles.orderedItems}>
-                <p>1 Salad ($8.40)</p>
-                <p>1 Soda ($3.00)</p>
-              </div>
+              <SummaryOrderedItems />
             </div>
           ))}
         </div>

@@ -1,0 +1,6 @@
+.orderedItems{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: rgb(136, 136, 136);
+}
