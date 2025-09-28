@@ -1,7 +1,7 @@
 import styles from "./receiptItem.module.css";
-import ReceiptClientPhoto from "./ReceiptClientPhoto";
+import ReceiptClientPhoto from "../receiptClient/ReceiptClientPhoto";
 import { useEffect, useState } from "react";
-import { editReceipt } from "../../api/image";
+import { editReceipt } from "../../../api/image";
 
 export default function ReceiptItem({ itemData, receiptData }) {
   const [orderedBy, setOrderedBy] = useState([]);

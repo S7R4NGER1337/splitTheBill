@@ -1,8 +1,7 @@
 import styles from "./receiptPage.module.css";
-import ReceiptClients from "./ReceiptClients";
+import ReceiptClients from "./receiptClient/ReceiptClients";
 import { useEffect, useState } from "react";
-import ReceiptItem from "./ReceiptItem";
-import ReceiptItems from "./ReceiptItems";
+import ReceiptItems from "./receiptItems/ReceiptItems";
 import { useLocation } from "react-router-dom";
 import { GetReceiptById } from "../../api/image";
 import Loader from "../Loader";

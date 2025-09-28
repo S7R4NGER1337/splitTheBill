@@ -1,7 +1,7 @@
 import { useState } from "react";
 import ReceiptClientPhoto from "./ReceiptClientPhoto";
 import styles from "./receiptClients.module.css";
-import { setNewName } from "../../api/image";
+import { setNewName } from "../../../api/image";
 
 export default function ReceiptClients({ receiptData, setReceiptData }) {
   const [clientInputStatus, setCientInputStatus] = useState("hidden");
