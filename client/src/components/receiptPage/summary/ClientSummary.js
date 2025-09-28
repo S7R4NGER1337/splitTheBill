@@ -3,7 +3,7 @@ import styles from "./clientSummary.module.css";
 
 export default function ClientSummary({ client }) {
   return (
-    <div className={styles.clientSummary} key={client}>
+    <div className={styles.clientSummary}>
       <section className={styles.clientData}>
         <div>
           <p className={styles.clientName}>{client}</p>
