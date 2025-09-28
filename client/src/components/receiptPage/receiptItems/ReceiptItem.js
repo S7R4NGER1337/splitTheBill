@@ -1,7 +1,7 @@
 import styles from "./receiptItem.module.css";
 import ReceiptClientPhoto from "../receiptClient/ReceiptClientPhoto";
 import { useEffect, useState } from "react";
-import { editReceipt, deleteReceiptItem } from "../../../api/image";
+import { editReceiptOrderedBy, deleteReceiptItem } from "../../../api/image";
 
 export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
   const [orderedBy, setOrderedBy] = useState([]);
@@ -11,7 +11,7 @@ export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
   }, []);
 
   useEffect(() => {
-    editReceipt(orderedBy, itemData._id, receiptData._id);
+    editReceiptOrderedBy(orderedBy, itemData._id, receiptData._id);
 
     setReceiptData((prev) => ({
       ...prev,

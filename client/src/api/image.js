@@ -33,7 +33,7 @@ export async function setNewName(id, name) {
   return data;
 }
 
-export async function editReceipt(receipt, itemId, receiptId) {
+export async function editReceiptOrderedBy(receipt, itemId, receiptId) {
   const response = await fetch(`${URL}/receipt/edit/orderedBy`, {
     method: "POST",
     headers: {
