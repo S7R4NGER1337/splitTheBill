@@ -1,11 +1,11 @@
-import styles from './summaryOrderedItems.module.css'
+import styles from "./summaryOrderedItems.module.css";
 
-export default function SummaryOrderedItems() {
-    
+export default function SummaryOrderedItems({ orderedItems }) {
   return (
     <div className={styles.orderedItems}>
-      <p className={styles.orderdItem}>1 Salad ($8.40)</p>
-      <p className={styles.orderdItem}>1 Soda ($3.00)</p>
+      {orderedItems.map((item) => (
+        <p className={styles.orderdItem}>Salad (${item.price})</p>
+      ))}
     </div>
   );
 }
