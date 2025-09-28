@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
 import SummaryOrderedItems from "./SummaryOrderedItems";
 import styles from "./clientSummary.module.css";
 
 export default function ClientSummary({ client, receiptData }) {
+  const [orderedItems, setOrderedItems] = useState([])
+  
+  useEffect(() => {
+    const haveOrdered = receiptData.orderItems.filter(item => item.orderedBy.includes(client))
+    setOrderedItems(haveOrdered);
+  }, [])
+
   return (
     <div className={styles.clientSummary}>
       <section className={styles.clientData}>
@@ -12,7 +20,7 @@ export default function ClientSummary({ client, receiptData }) {
         <p className={styles.clientPrice}>$10.60</p>
       </section>
       <div className={styles.line}></div>
-      <SummaryOrderedItems />
+      <SummaryOrderedItems orderedItems={orderedItems}/>
     </div>
   );
 }
