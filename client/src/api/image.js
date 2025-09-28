@@ -35,7 +35,7 @@ export async function setNewName(id, name) {
 
 
 export async function editReceipt(receipt, itemId, receiptId) {
-  const response = await fetch(`${URL}/receipt/edit`, {
+  const response = await fetch(`${URL}/receipt/edit/orderedBy`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

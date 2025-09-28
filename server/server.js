@@ -114,7 +114,7 @@ app.post("/receipt/setUser", async (req, res) => {
   }
 });
 
-app.post("/receipt/edit", async (req, res) => {
+app.post("/receipt/edit/orderedBy", async (req, res) => {
   try {
     const clients = req.body.clients;
     const itemId = req.body.itemId;
