@@ -1,0 +1,48 @@
+
+.summaryContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.summaryContainerTitle{
+    font-size: 1.6rem;
+}
+.clientsSummary{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.clientData{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.line{
+    height: 0.1em;
+    background-color: gainsboro;
+    width: 90%;
+    justify-self: center;
+}
+
+.clientSummary{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: #fff;
+    padding: 1.1em;
+}
+
+.orderedItems{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    color: rgb(136, 136, 136);
+}
+
+.clientPrice, .clientName{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
