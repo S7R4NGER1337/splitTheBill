@@ -8,7 +8,7 @@ function calculateTotal(orderedItems) {
     sum += order.price;
   });
 
-  return sum;
+  return sum.toFixed(2);
 }
 
 export default function ClientSummary({ client, receiptData }) {
