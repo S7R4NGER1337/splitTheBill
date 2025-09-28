@@ -8,7 +8,6 @@ export default function ReceiptItem({ itemData, receiptData }) {
 
   useEffect(() => {
     setOrderedBy(itemData.orderedBy);
-    console.log(1);
   }, [itemData]);
 
   useEffect(() => {
