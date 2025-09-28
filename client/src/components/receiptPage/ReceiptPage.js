@@ -5,7 +5,7 @@ import ReceiptItems from "./receiptItems/ReceiptItems";
 import { useLocation } from "react-router-dom";
 import { GetReceiptById } from "../../api/image";
 import Loader from "../Loader";
-import Summary from "./Summary";
+import Summary from "./summary/Summary";
 
 export default function ReceiptPage() {
   const [receiptData, setReceiptData] = useState(null);
