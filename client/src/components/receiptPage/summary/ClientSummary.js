@@ -1,7 +1,7 @@
 import SummaryOrderedItems from "./SummaryOrderedItems";
 import styles from "./clientSummary.module.css";
 
-export default function ClientSummary({ client }) {
+export default function ClientSummary({ client, receiptData }) {
   return (
     <div className={styles.clientSummary}>
       <section className={styles.clientData}>

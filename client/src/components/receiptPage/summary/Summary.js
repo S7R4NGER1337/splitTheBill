@@ -7,7 +7,7 @@ export default function Summary({ receiptData }) {
       <h1 className={styles.summaryContainerTitle}>Summary</h1>
       <div className={styles.clientsSummary}>
         {receiptData.clients.map((client) => (
-          <ClientSummary client={client} key={client}/>
+          <ClientSummary client={client} receiptData={receiptData} key={client}/>
         ))}
       </div>
     </div>
