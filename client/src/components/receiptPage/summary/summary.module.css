@@ -8,3 +8,9 @@
 .summaryContainerTitle{
     font-size: 1.6rem;
 }
+
+.clientsSummary{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
