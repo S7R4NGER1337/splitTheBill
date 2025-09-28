@@ -1,24 +1,20 @@
-import { useEffect, useState } from "react";
 import SummaryOrderedItems from "./SummaryOrderedItems";
 import styles from "./clientSummary.module.css";
 
 function calculateTotal(orderedItems) {
-  let sum = 0
+  let sum = 0;
 
-  orderedItems.forEach(order => {
-    sum += order.price
+  orderedItems.forEach((order) => {
+    sum += order.price;
   });
-  
-  return sum
+
+  return sum;
 }
 
 export default function ClientSummary({ client, receiptData }) {
-  const [orderedItems, setOrderedItems] = useState([])
-
-  useEffect(() => {
-    const haveOrdered = receiptData.orderItems.filter(item => item.orderedBy.includes(client))
-    setOrderedItems(haveOrdered);
-  }, [])
+  const orderedItems = receiptData.orderItems.filter((item) =>
+    item.orderedBy.includes(client)
+  );
 
   return (
     <div className={styles.clientSummary}>
@@ -30,7 +26,7 @@ export default function ClientSummary({ client, receiptData }) {
         <p className={styles.clientPrice}>${calculateTotal(orderedItems)}</p>
       </section>
       <div className={styles.line}></div>
-      <SummaryOrderedItems orderedItems={orderedItems}/>
+      <SummaryOrderedItems orderedItems={orderedItems} />
     </div>
   );
 }
