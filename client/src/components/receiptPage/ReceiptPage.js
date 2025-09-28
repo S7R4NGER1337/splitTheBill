@@ -2,9 +2,11 @@ import styles from "./receiptPage.module.css";
 import ReceiptClients from "./ReceiptClients";
 import { useEffect, useState } from "react";
 import ReceiptItem from "./ReceiptItem";
+import ReceiptItems from "./ReceiptItems";
 import { useLocation } from "react-router-dom";
 import { GetReceiptById } from "../../api/image";
 import Loader from "../Loader";
+import Summary from "./Summary";
 
 export default function ReceiptPage() {
   const [receiptData, setReceiptData] = useState(null);
@@ -25,13 +27,10 @@ export default function ReceiptPage() {
         receiptData={receiptData}
         setReceiptData={setReceiptData}
       />
-      <div className={styles.receiptItemsContainer}>
-        {receiptData.orderItems.map((item, index) => (
-          <ReceiptItem itemData={item} receiptData={receiptData} key={index} />
-        ))}
-      </div>
+      <ReceiptItems receiptData={receiptData}/>
+      <Summary receiptData={receiptData}/>
     </div>
   ) : (
-    <Loader/>
+    <Loader />
   );
 }
