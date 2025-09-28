@@ -1,4 +1,4 @@
-.receiptPageContainer{
+.receiptPageContainer {
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -6,10 +6,4 @@
     padding: 1em;
     background-color: #f6f8f7;
     min-height: 100vh;
-}
-
-.receiptItemsContainer{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
 }
