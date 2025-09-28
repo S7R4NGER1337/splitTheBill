@@ -1,6 +1,7 @@
 import styles from './summaryOrderedItems.module.css'
 
 export default function SummaryOrderedItems() {
+    
   return (
     <div className={styles.orderedItems}>
       <p className={styles.orderdItem}>1 Salad ($8.40)</p>

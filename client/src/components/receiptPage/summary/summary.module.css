@@ -8,34 +8,3 @@
 .summaryContainerTitle{
     font-size: 1.6rem;
 }
-.clientsSummary{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-
-.clientData{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.line{
-    height: 0.1em;
-    background-color: gainsboro;
-    width: 90%;
-    justify-self: center;
-}
-
-.clientSummary{
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    background-color: #fff;
-    padding: 1.1em;
-}
-
-.clientPrice, .clientName{
-    font-size: 1.1rem;
-    font-weight: 700;
-}
