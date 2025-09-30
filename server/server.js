@@ -14,7 +14,11 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
 
-app.use(cors());
+let corsOptions = {
+  origin: [process.env.FRONTEND_URL],
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded());
 
