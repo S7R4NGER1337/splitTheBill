@@ -14,6 +14,7 @@ export default function ReceiptClients({ receiptData, setReceiptData }) {
     }));
     await setNewName(receiptData._id, newClient);
     setCientInputStatus("hidden");
+    setNewClient('')
   }
 
   return (
