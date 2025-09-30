@@ -1,4 +1,4 @@
-const URL = "http://localhost:3030";
+const URL = process.env.REACT_APP_BACKEND_URL;
 
 export async function sendImage(formData) {
   try {
