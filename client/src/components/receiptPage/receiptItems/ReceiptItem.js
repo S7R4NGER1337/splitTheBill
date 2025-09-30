@@ -44,7 +44,7 @@ export default function ReceiptItem({
 
   function editItem() {
     setItemStatus("shown");
-    editReceiptItem(itemData.id);
+    editReceiptItem(itemData);
 
     setReceiptData((prev) => ({
       ...prev,

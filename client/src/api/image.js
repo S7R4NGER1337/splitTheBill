@@ -62,3 +62,16 @@ export async function deleteReceiptItem(itemId, receiptId) {
 
   return deletedProduct;
 }
+
+export async function editReceiptItem(itemData) {
+  const response = await fetch(`${URL}/receiptItem/edit`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ itemId: itemData._id, itemData: itemData }),
+  });
+  const editedItem = await response.json()
+
+  return editedItem
+}
