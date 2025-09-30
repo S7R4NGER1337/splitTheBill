@@ -137,6 +137,27 @@ app.post("/receipt/edit/orderedBy", async (req, res) => {
   }
 });
 
+app.post("/receiptItem/delete", async (req, res) => {
+  try {
+    const { itemId, receiptId } = req.body;
+
+    const updatedReceipt = await Receipt.findByIdAndUpdate(
+      receiptId,
+      { $pull: { orderItems: { _id: itemId } } },
+      { new: true }
+    );
+
+    if (!updatedReceipt) {
+      return res.status(404).json({ message: "Receipt not found" });
+    }
+
+    res.json({ message: "Item deleted successfully", receipt: updatedReceipt });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
 mongoose
   .connect("mongodb://localhost:27017/SplitTheBill")
   .then(() => console.log("Db connected"))
