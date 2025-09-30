@@ -44,7 +44,7 @@ export default function ReceiptItem({
 
   function editItem() {
     setItemStatus("shown");
-    editReceiptItem(itemData);
+    editReceiptItem(itemData, receiptData._id);
 
     setReceiptData((prev) => ({
       ...prev,
@@ -76,7 +76,7 @@ export default function ReceiptItem({
               type="number"
               value={itemData.price}
               onChange={(e) =>
-                setItemData((prev) => ({ ...prev, price: e.target.value }))
+                setItemData((prev) => ({ ...prev, price: Number(e.target.value) }))
               }
             />
             <button onClick={editItem}>Continue</button>
