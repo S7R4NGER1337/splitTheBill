@@ -5,7 +5,7 @@ export default function ReceiptItems({ receiptData, setReceiptData }) {
   return (
     <div className={styles.receiptItemsContainer}>
       {receiptData.orderItems.map((item, index) => (
-        <ReceiptItem itemData={item} receiptData={receiptData} setReceiptData={setReceiptData} key={index} />
+        <ReceiptItem staticitemData={item} receiptData={receiptData} setReceiptData={setReceiptData} key={index} />
       ))}
     </div>
   );

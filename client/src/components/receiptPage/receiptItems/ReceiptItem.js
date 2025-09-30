@@ -3,8 +3,14 @@ import ReceiptClientPhoto from "../receiptClient/ReceiptClientPhoto";
 import { useEffect, useState } from "react";
 import { editReceiptOrderedBy, deleteReceiptItem } from "../../../api/image";
 
-export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
+export default function ReceiptItem({
+  staticitemData,
+  receiptData,
+  setReceiptData,
+}) {
   const [orderedBy, setOrderedBy] = useState([]);
+  const [itemStatus, setItemStatus] = useState("shown");
+  const [itemData, setItemData] = useState(staticitemData);
 
   useEffect(() => {
     setOrderedBy(itemData.orderedBy);
@@ -22,26 +28,45 @@ export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
   }, [orderedBy]);
 
   function deleteItem() {
-    setReceiptData(prev => ({...prev, orderItems: prev['orderItems'].filter(item => item._id !== itemData._id)
-    }))
-    
-    deleteReceiptItem(itemData._id, receiptData._id)
+    setReceiptData((prev) => ({
+      ...prev,
+      orderItems: prev["orderItems"].filter(
+        (item) => item._id !== itemData._id
+      ),
+    }));
+
+    deleteReceiptItem(itemData._id, receiptData._id);
+  }
+
+  function editItem() {
+    setItemStatus("hidden");
   }
 
   return (
     <div className={styles.receiptItemContainer}>
       <div className={styles.receiptItemData}>
-        <section className={styles.receiptItemInfo}>
-          <h1 className={styles.receiptItemName}>{itemData.name}</h1>
-          <p className={styles.receiptItemPrice}>
-            ${itemData.price} x{itemData.qty}
-          </p>
-        </section>
+        {itemStatus === "shown" ? (
+          <section className={styles.receiptItemInfo}>
+            <h1 className={styles.receiptItemName}>{itemData.name}</h1>
+            <p className={styles.receiptItemPrice}>${itemData.price}</p>
+          </section>
+        ) : (
+          <section className={styles.receiptItemInfo}>
+            <input className={styles.receiptItemName} value={itemData.name} />
+            <input
+              className={styles.receiptItemPrice}
+              type="number"
+              value={itemData.price}
+            />
+          </section>
+        )}
+
         <div className={styles.receiptItemActions}>
           <img
             className={styles.receiptAction}
             src="/pencil-solid-full.svg"
             alt="edit"
+            onClick={editItem}
           />
           <img
             className={styles.receiptAction}
