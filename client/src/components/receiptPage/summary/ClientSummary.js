@@ -12,9 +12,14 @@ function calculateTotal(orderedItems) {
 }
 
 export default function ClientSummary({ client, receiptData }) {
-  const orderedItems = receiptData.orderItems.filter((item) =>
-    item.orderedBy.includes(client)
-  );
+  const orderedItems = receiptData.orderItems
+    .filter((item) => item.orderedBy.includes(client))
+    .map((item) => {
+      if (item.orderedBy.length > 1) {
+        return { ...item, price: item.price / item.orderedBy.length };
+      }
+      return item;
+    });
 
   return (
     <div className={styles.clientSummary}>
