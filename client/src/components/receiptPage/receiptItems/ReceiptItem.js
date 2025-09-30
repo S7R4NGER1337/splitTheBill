@@ -21,6 +21,13 @@ export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
     }));
   }, [orderedBy]);
 
+  function deleteItem() {
+    setReceiptData(prev => ({...prev, orderItems: prev['orderItems'].filter(item => item._id !== itemData._id)
+    }))
+    
+    deleteReceiptItem(itemData._id, receiptData._id)
+  }
+
   return (
     <div className={styles.receiptItemContainer}>
       <div className={styles.receiptItemData}>
@@ -40,7 +47,7 @@ export default function ReceiptItem({ itemData, receiptData, setReceiptData }) {
             className={styles.receiptAction}
             src="/trash-solid-full.svg"
             alt="edit"
-            onClick={() => deleteReceiptItem(itemData._id, receiptData._id)}
+            onClick={deleteItem}
           />
         </div>
       </div>
