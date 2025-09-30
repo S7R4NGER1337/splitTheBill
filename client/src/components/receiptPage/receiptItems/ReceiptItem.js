@@ -13,7 +13,7 @@ export default function ReceiptItem({
   setReceiptData,
 }) {
   const [orderedBy, setOrderedBy] = useState([]);
-  const [itemStatus, setItemStatus] = useState("shown");
+  const [itemStatus, setItemStatus] = useState(true);
   const [itemData, setItemData] = useState(staticitemData);
 
   useEffect(() => {
@@ -57,7 +57,7 @@ export default function ReceiptItem({
   return (
     <div className={styles.receiptItemContainer}>
       <div className={styles.receiptItemData}>
-        {itemStatus === "shown" ? (
+        {itemStatus ? (
           <section className={styles.receiptItemInfo}>
             <h1 className={styles.receiptItemName}>{itemData.name}</h1>
             <p className={styles.receiptItemPrice}>${itemData.price}</p>
@@ -88,7 +88,7 @@ export default function ReceiptItem({
             className={styles.receiptAction}
             src="/pencil-solid-full.svg"
             alt="edit"
-            onClick={() => setItemStatus("hidden")}
+            onClick={() => setItemStatus(prev => !prev)}
           />
           <img
             className={styles.receiptAction}
