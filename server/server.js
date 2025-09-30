@@ -188,8 +188,8 @@ app.post("/receiptItem/edit", async (req, res) => {
 });
 
 mongoose
-  .connect("mongodb://localhost:27017/SplitTheBill")
+  .connect(process.env.DB_URL)
   .then(() => console.log("Db connected"))
   .catch((error) => console.log(error));
 
-app.listen(3030, () => console.log("Server running on http://localhost:3030"));
+app.listen(3030, () => console.log("Server running"));
