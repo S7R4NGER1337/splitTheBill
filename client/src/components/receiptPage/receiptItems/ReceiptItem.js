@@ -1,7 +1,11 @@
 import styles from "./receiptItem.module.css";
 import ReceiptClientPhoto from "../receiptClient/ReceiptClientPhoto";
 import { useEffect, useState } from "react";
-import { editReceiptOrderedBy, deleteReceiptItem } from "../../../api/image";
+import {
+  editReceiptOrderedBy,
+  deleteReceiptItem,
+  editReceiptItem,
+} from "../../../api/image";
 
 export default function ReceiptItem({
   staticitemData,
@@ -39,7 +43,15 @@ export default function ReceiptItem({
   }
 
   function editItem() {
-    setItemStatus("hidden");
+    setItemStatus("shown");
+    editReceiptItem(itemData.id);
+
+    setReceiptData((prev) => ({
+      ...prev,
+      orderItems: prev.orderItems.map((item) =>
+        item._id === itemData._id ? itemData : item
+      ),
+    }));
   }
 
   return (
@@ -52,12 +64,22 @@ export default function ReceiptItem({
           </section>
         ) : (
           <section className={styles.receiptItemInfo}>
-            <input className={styles.receiptItemName} value={itemData.name} />
+            <input
+              className={styles.receiptItemName}
+              value={itemData.name}
+              onChange={(e) =>
+                setItemData((prev) => ({ ...prev, name: e.target.value }))
+              }
+            />
             <input
               className={styles.receiptItemPrice}
               type="number"
               value={itemData.price}
+              onChange={(e) =>
+                setItemData((prev) => ({ ...prev, price: e.target.value }))
+              }
             />
+            <button onClick={editItem}>Continue</button>
           </section>
         )}
 
@@ -66,7 +88,7 @@ export default function ReceiptItem({
             className={styles.receiptAction}
             src="/pencil-solid-full.svg"
             alt="edit"
-            onClick={editItem}
+            onClick={() => setItemStatus("hidden")}
           />
           <img
             className={styles.receiptAction}
